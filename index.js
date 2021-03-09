@@ -11,26 +11,25 @@ router.on("/", () => render(state.Home)).resolve();
 router.on({
   "/": () => render(state.Home),
   ":page": params => {
-    let page = capitalize(params.page);
+    let page = capitalize(params.data.page);
     render(state[page]);
   }})
-
+  .resolve();
 // import {
 //   AddPicturesToGallery,
 //   GalleryPictures,
 //   PrintFormOnSubmit
 // } from "./lib";
 
-function render(st) {
-  console.log(st);
+function render(st=state.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
   ${Nav(state.Links)}
   ${Main(st)}
   ${Footer()}
 `;
-}
 router.updatePageLinks();
+}
 //render(state.Home);
 
 // add menu toggle to bars icon in nav bar
