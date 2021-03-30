@@ -90,7 +90,7 @@ function addPicOnFormSubmit(st) {
         toppings: toppings
       };
       axios
-        .post(`http://localhost:4040/pizzas`, requestData)
+        .post(`https://hingargiolatestspa.herokuapp.com//pizzas`, requestData)
         .then(response => {
           state.Pizza.pizzas.push(response.data);
           router.navigate("/Pizza");
@@ -106,7 +106,7 @@ function fetchDataByView(st = state.Home) {
   switch (st.page) {
     case "Pizza":
       axios
-        .get(`http://localhost:4040/pizzas`)
+        .get(`https://hingargiolatestspa.herokuapp.com//pizzas`)
         .then(response => {
           state[st.page].pizzas = response.data;
           render(st);
