@@ -35,8 +35,7 @@ app.use('/users', users);
 app.use('/orders',orders);
 
 // Database stuff
-mongoose.connect("
-mongodb+srv://hingargiola:Abcd814831722@cluster0.crmia.mongodb.net/pizza?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://hingargiola:Abcd814831722@cluster0.crmia.mongodb.net/pizza?retryWrites=true&w=majority");
 const db = mongoose.connection;
 
 let db_status = "MongoDB connection not successful.";
